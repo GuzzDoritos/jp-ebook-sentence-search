@@ -1,12 +1,17 @@
 print("Initializing...")
 
+import streamlit as st
 from bs4 import BeautifulSoup
 from ebooklib import epub
 import ebooklib
 from sudachipy import Dictionary, SplitMode
 import re
 
-tokenizer_obj = Dictionary().create()
+@st.cache_resource
+def get_tokenizer():
+    return Dictionary().create()
+
+tokenizer_obj = get_tokenizer()
 
 def main():
     f = input("Type name of file: ")
