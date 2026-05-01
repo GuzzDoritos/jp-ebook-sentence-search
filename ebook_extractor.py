@@ -7,6 +7,7 @@ from sudachipy import SplitMode
 import re
 
 
+
 def get_sentences(book):
     sentences = []
 
@@ -27,10 +28,10 @@ def get_sentences(book):
 
     return sentences
 
-def create_index(sentences):
+def create_index(sentences, tokenizer_obj):
     index = {} 
     for s in sentences:
-        for token in tokenize(s):
+        for token in tokenize(s, tokenizer_obj):
             if (has_japanese(token)):
                 if (token not in index):
                     index[token] = set()
@@ -42,6 +43,6 @@ def has_japanese(text):
     jp_pattern = re.compile(r'[\u3040-\u30ff\u4e00-\u9fff]')
     return bool(jp_pattern.search(text))
 
-def tokenize(sentence):
+def tokenize(sentence, tokenizer_obj):
     return [m.dictionary_form() for m in tokenizer_obj.tokenize(sentence, SplitMode.C)]
 

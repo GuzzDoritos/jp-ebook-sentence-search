@@ -27,7 +27,7 @@ def main():
 def search_loop(index):
     word = input("Type a word: ")
     while word:
-        tokens = tokenize(word)
+        tokens = tokenize(word, tokenizer_obj)
         if not tokens:
             print("Could not tokenize input.")
             word = input("Type a word: ")

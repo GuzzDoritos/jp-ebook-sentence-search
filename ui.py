@@ -43,7 +43,7 @@ if uploaded_file:
     word = st.text_input("Search for a word:")
 
     if word:
-        tokens = tokenize(word)
+        tokens = tokenize(word, tokenizer_obj)
         if not tokens:
             st.warning("Could not tokenize input.")
         else:
