@@ -1,7 +1,7 @@
 import streamlit as st
 import tempfile
 import os
-from ebook_extractor import get_sentences, create_index, tokenize, tokenizer_obj
+from ebook_extractor import get_sentences, create_index, tokenize
 from sudachipy import SplitMode
 from sudachipy import Dictionary, SplitMode
 
