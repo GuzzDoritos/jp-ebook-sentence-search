@@ -3,10 +3,16 @@ import tempfile
 import os
 from ebook_extractor import get_sentences, create_index, tokenize, tokenizer_obj
 from sudachipy import SplitMode
-from pathlib import Path
+from sudachipy import Dictionary, SplitMode
 
 st.set_page_config(page_title="文検索", page_icon="📖")
 st.title("文検索")
+
+@st.cache_resource
+def get_tokenizer():
+    return Dictionary().create()
+tokenizer_obj = get_tokenizer()
+
 
 @st.cache_resource
 def build_index(file_bytes):
