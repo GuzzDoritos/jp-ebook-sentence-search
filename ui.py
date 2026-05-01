@@ -28,7 +28,7 @@ def build_index(file_bytes):
     os.unlink(tmp_path)
 
     sentences = get_sentences(book)
-    index = create_index(sentences)
+    index = create_index(sentences, tokenizer_obj)
     return index
 
 uploaded_file = st.file_uploader("Upload an EPUB file", type="epub")
